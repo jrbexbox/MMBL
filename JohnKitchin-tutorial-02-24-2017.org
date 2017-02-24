@@ -1,0 +1,60 @@
+1. Figure placements and size, captions and cross-references
+
+#+BEGIN_SRC python :results output org drawer
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0, 2*np.pi)
+y = np.sin(x)
+
+plt.plot(x, y)
+plt.savefig('fig.png')
+#+END_SRC
+
+
+C-c C-x C-v  to toggle the images on and off
+
+C-c C-e l L
+
+See figure ref:fig-sin to see the graph.
+
+C-c ] insert a citation cite:alesi-2012-evaluat-primar
+
+C-u C-c ]  ref:fig-sin bad word abd  C-; for spell-checking the last mispelled word.
+
+C-u C-u C-c ] insert label label:fig-sin-2
+
+Esc-Esc-Esc  or C-g
+
+#+caption: A sin wave. label:fig-sin
+#+attr_latex: :width 3in :placement [H]
+#+attr_org: :width 300
+[[./fig.png]]
+
+C-c C-x \ toggle pretty entities
+
+subscripts H_{2}O H^{+}
+
+M-x helm-insert-org-entity
+
+Ø
+
+
+
+2. Export to LaTeX
+
+C-c C-e
+
+bibliographystyle:unsrt
+bibliography:~/Dropbox/bibliography/references.bib
+
+3. M-x elfeed
+
+#+BEGIN_SRC emacs-lisp
+
+(setq elfeed-feeds '(("http://feeds.feedburner.com/acs/accacs"
+                      "http://feeds.feedburner.com/acs/achre4")))
+
+#+END_SRC
+
+M-x elfeed-update
